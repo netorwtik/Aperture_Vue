@@ -13,6 +13,15 @@
         <router-link class="nav-item" to="/gear">Gear cage</router-link>
         <a class="nav-item" href="https://vk.com/netorwtik" target="_blank">Contact</a>
 
+        <div class="burger-menu">
+          <button class="burger-btn" @click="toggleMenu">☰</button>
+          <div :class="{ 'burger-menu-slide': true, show: isMenuOpen }">
+            <a class="nav-item-slide" href="#Business">Business areas</a>
+            <a class="nav-item-slide" href="#Featured">Featured images</a>
+            <router-link class="nav-item-slide" to="/gear">Gear cage</router-link>
+            <a class="nav-item-slide" href="https://vk.com/netorwtik" target="_blank">Contact</a>
+          </div>
+        </div>
         <div class="btn">
           <a class="button" href="#" @click.prevent="openModal">Get template</a>
         </div>
@@ -52,6 +61,7 @@ export default {
     return {
       logo,
       isModalVisible: false,
+      isMenuOpen: false,
       name: '',
       phone: '',
       email: '',
@@ -64,6 +74,9 @@ export default {
     },
     closeModal() {
       this.isModalVisible = false;
+    },
+    toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen;
     },
     register() {
       const formData = {
@@ -128,12 +141,8 @@ export default {
   align-items: center;
 }
 
-@media (max-width: 1200px) {
-}
-.header-logo {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  padding-left: 152px;
+.burger-menu {
+  display: none;
 }
 
 .nav {
@@ -265,20 +274,62 @@ export default {
 }
 
 @media (max-width: 700px) {
+  .nav {
+    justify-content: flex-end;
+  }
+  .btn {
+    margin-right: 10px;
+  }
   .nav-item {
-    margin: 0;
-    display: flex;
-    text-align: center;
+    display: none;
+  }
+  .nav-item-slide {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 24px;
+    transition: 0.3s;
+  }
+  .nav-item-slide:hover {
+    color: #5e5b5b;
+  }
+
+  .burger-menu {
+    display: block;
+  }
+  .burger-btn {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .burger-menu-slide {
+    display: none;
+    width: 200px;
+    height: 300px;
+    background-color: #000;
+    position: absolute;
+    top: 90px;
+    right: 40px;
+    z-index: 1;
+    border-radius: 20px;
+  }
+
+  .burger-menu-slide.show {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 8px;
+    justify-items: center;
+    align-items: center;
   }
 }
 
 @media (max-width: 600px) {
-  .header-logo {
-    padding: 30px 0 30px 10px;
-  }
-
   .header-info {
-    max-width: 400px;
+    max-width: 350px;
   }
 }
 </style>

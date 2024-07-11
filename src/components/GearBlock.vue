@@ -244,4 +244,22 @@ export default {
     margin-left: 20px;
   }
 }
+
+@media (max-width: 400px) {
+  .gear-text h2 {
+    max-width: 270px;
+    margin-left: 20px;
+  }
+  .gear-text h3 {
+    max-width: 270px;
+    margin-left: 20px;
+  }
+  .gear-text p {
+    max-width: 270px;
+    margin-left: 20px;
+  }
+  .gear-btn {
+    margin-left: 20px;
+  }
+}
 </style>

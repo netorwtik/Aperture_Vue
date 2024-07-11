@@ -110,4 +110,15 @@ export default {
     align-items: center;
   }
 }
+
+@media (max-width: 400px) {
+  .pictures-image {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 8px;
+    justify-items: center;
+    align-items: center;
+  }
+}
 </style>
