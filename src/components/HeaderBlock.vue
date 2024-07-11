@@ -141,6 +141,10 @@ export default {
   align-items: center;
 }
 
+.header-logo {
+  padding-left: 60px;
+}
+
 .burger-menu {
   display: none;
 }
